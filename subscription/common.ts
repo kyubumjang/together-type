@@ -7,6 +7,6 @@ export interface ISubscription extends IBaseTimeEntity {
 }
 
 export interface IGetSubScriptions {
-  userId: ISubscription['subscriberId'];
+  subscriberId: ISubscription['subscriberId'];
   TargetUser: IUserShow;
 }

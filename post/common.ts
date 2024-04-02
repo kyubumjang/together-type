@@ -31,6 +31,10 @@ export const PostCategory = {
 
 export type PostCategory = Union<typeof PostCategory>;
 
-export interface IPostWithWriter extends Omit<IPost, 'writerId'> {
+export interface IPostWithWriterLogin extends IPostWithWriterNonLogin {
+  isScraped: boolean;
+}
+export interface IPostWithWriterNonLogin extends Omit<IPost, 'writerId'> {
+  views: number;
   Writer: IUserShow;
 }

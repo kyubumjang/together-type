@@ -1,11 +1,13 @@
 import { IListPagination, IPaginationQuery, Payload } from 'types/common';
-import { IPostWithWriter } from '../common';
+import { IPostWithWriterLogin, IPostWithWriterNonLogin } from '../common';
+import { BearerAccessTokenHeader } from 'types/auth/dto/updateToken';
 
 export type IGetPostsQueryDto = IPaginationQuery;
 
 export type GetPosts = Payload<
-  undefined,
+  undefined | BearerAccessTokenHeader,
   IGetPostsQueryDto,
   undefined,
-  IListPagination<IPostWithWriter>
+  | IListPagination<IPostWithWriterLogin>
+  | IListPagination<IPostWithWriterNonLogin>
 >;
